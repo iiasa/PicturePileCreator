@@ -1,6 +1,6 @@
 ﻿namespace PPC.ResourceAccess.Pile.DAO
 {
-    public class PileDefinition
+    public abstract class Tile
     {
     }
 }

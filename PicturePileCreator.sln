@@ -1,14 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicturePileCreator", "PicturePileCreator\PicturePileCreator.csproj", "{0966F9F5-7645-4C88-A030-503EE07CE79C}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.Client.Console", "PPC.Client.Console\PPC.Client.Console.csproj", "{9E867F23-F548-47AE-9713-66831B7D444A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.Client.Console", "PPC.Client.Console\PPC.Client.Console.csproj", "{9E867F23-F548-47AE-9713-66831B7D444A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.Pile.Contract", "PPC.ResourceAccess.Pile.Contract\PPC.ResourceAccess.Pile.Contract.csproj", "{29E1B7FC-D109-406F-9B04-7EC431D2C339}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.Pile.Contract", "PPC.ResourceAccess.Pile.Contract\PPC.ResourceAccess.Pile.Contract.csproj", "{29E1B7FC-D109-406F-9B04-7EC431D2C339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.Pile.DTO", "PPC.ResourceAccess.Pile.DTO\PPC.ResourceAccess.Pile.DTO.csproj", "{D62C5D7C-846A-4300-BF94-E890B50FB13B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.Pile.DTO", "PPC.ResourceAccess.Pile.DTO\PPC.ResourceAccess.Pile.DTO.csproj", "{D62C5D7C-846A-4300-BF94-E890B50FB13B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.Pile.FolderAccess", "PPC.ResourceAccess.Pile.FolderAccess\PPC.ResourceAccess.Pile.FolderAccess.csproj", "{8676278F-4970-417C-8FD2-8991E74D72D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.Pile.FolderAccess", "PPC.ResourceAccess.Pile.FolderAccess\PPC.ResourceAccess.Pile.FolderAccess.csproj", "{8676278F-4970-417C-8FD2-8991E74D72D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0966F9F5-7645-4C88-A030-503EE07CE79C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0966F9F5-7645-4C88-A030-503EE07CE79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0966F9F5-7645-4C88-A030-503EE07CE79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0966F9F5-7645-4C88-A030-503EE07CE79C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E867F23-F548-47AE-9713-66831B7D444A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E867F23-F548-47AE-9713-66831B7D444A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E867F23-F548-47AE-9713-66831B7D444A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,5 +33,11 @@ Global
 		{8676278F-4970-417C-8FD2-8991E74D72D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8676278F-4970-417C-8FD2-8991E74D72D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8676278F-4970-417C-8FD2-8991E74D72D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2EA7CC2E-8E74-42BF-963F-D474504BA7F6}
 	EndGlobalSection
 EndGlobal
