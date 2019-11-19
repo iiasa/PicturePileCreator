@@ -2,12 +2,15 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.0</TargetFramework>
-        <RootNamespace>PPC.ResourceAccess.Pile.DAO</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Serilog" Version="2.9.0" />
       <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PPC.ResourceAccess.Pile.Contract\PPC.ResourceAccess.PileSource.Contract.csproj" />
     </ItemGroup>
 
 </Project>

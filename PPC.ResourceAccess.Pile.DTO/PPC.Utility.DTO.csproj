@@ -1,17 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.0</TargetFramework>
-        <RootNamespace>PPC.ResourceAccess.Contract</RootNamespace>
+        <RootNamespace>PPC.Utility.DTO</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Serilog" Version="2.9.0" />
       <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\PPC.ResourceAccess.Pile.DTO\PPC.ResourceAccess.Pile.DTO.csproj" />
     </ItemGroup>
 
 </Project>

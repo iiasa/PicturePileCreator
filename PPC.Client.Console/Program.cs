@@ -1,41 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using CommandLine;
-using PPC.ResourceAccess.Contract;
-using PPC.ResourceAccess.Pile.DAO;
-using PPC.ResourceAccess.Pile.FolderAccess;
-
-namespace PPC_Console_Client
+﻿namespace PPC_Console_Client
 {
+    using System;
+    using CommandLine;
+    using PPC.Manager.Pile;
+
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Picture Pile Creator!");
             Parser.Default.ParseArguments<CLIOptions>(args)
                 .WithParsed<CLIOptions>(
-                    o =>
+                    options =>
                     {
-                        string foldername = o.Folder;
+                        string foldername = options.Folder;
 
-                        IPileSource pileSource = new FolderPileSource();
-                        pileSource.setPileSource(foldername);
-                        PileSourceCheckResult result = pileSource.checkPileSource();
+                        IPileManager pileManager = PileManagerFactory.getPileManager();
 
-                        if (result == PileSourceCheckResult.PileSourceOK)
+
+                        if (options.WritePileDefinition) 
                         {
-                            PileDefinition pileDefinition = pileSource.readPileDefinition();
-
-                            List<Tile> validationTiles = pileSource.readValidationTiles();
-                            List<Tile> exampleTiles = pileSource.readExampleTiles();
-                            List<Tile> expertTiles = pileSource.readExpertTiles();
+                            ReadPileDefinitionResult readPileDefinitionResult = pileManager.processPileDefinition(foldername);
                         }
                         else 
                         {
-                            // TODO: Output for failed pile source check
+                            Console.WriteLine("Not writing pile definition.");
                         }
-                    }
-                );
+
+
+                        if (options.WriteTiles)
+                        {
+                            if (options.PileId == null)
+                            {
+                                Console.WriteLine("You did not specify a pile id. For creating tile inserts this is necessary. Please consult the --help for further information.");
+                                return;
+                            }
+                            if (options.MediaItemGroupId == null)
+                            {
+                                Console.WriteLine("You did not specify a mediaitem group id. For creating tile inserts this is necessary. Please consult the --help for further information.");
+                                return;
+                            }
+                            ReadTilesResult readTilesResult = pileManager.processTiles(foldername, (int) options.PileId, (int) options.MediaItemGroupId);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not writing tiles.");
+                        }
+                    })
+                .WithNotParsed(
+                    errors => 
+                    {
+                        Console.WriteLine("Parsing parameters has failed due to the following problem(s):");
+                        foreach (var error in errors)
+                        {
+                            Console.WriteLine(error.ToString());
+                        }
+                    });
         }
     }
 }

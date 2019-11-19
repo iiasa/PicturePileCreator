@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.0</TargetFramework>
+        <RootNamespace>PPC.ResourceAccess.Contract</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -10,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PPC.ResourceAccess.Pile.Contract\PPC.ResourceAccess.Pile.Contract.csproj" />
+      <ProjectReference Include="..\PPC.ResourceAccess.Pile.DTO\PPC.Utility.DTO.csproj" />
     </ItemGroup>
 
 </Project>

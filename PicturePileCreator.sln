@@ -5,11 +5,19 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.Client.Console", "PPC.Client.Console\PPC.Client.Console.csproj", "{9E867F23-F548-47AE-9713-66831B7D444A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.Pile.Contract", "PPC.ResourceAccess.Pile.Contract\PPC.ResourceAccess.Pile.Contract.csproj", "{29E1B7FC-D109-406F-9B04-7EC431D2C339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.PileSource.Contract", "PPC.ResourceAccess.Pile.Contract\PPC.ResourceAccess.PileSource.Contract.csproj", "{29E1B7FC-D109-406F-9B04-7EC431D2C339}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.Pile.DTO", "PPC.ResourceAccess.Pile.DTO\PPC.ResourceAccess.Pile.DTO.csproj", "{D62C5D7C-846A-4300-BF94-E890B50FB13B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.Utility.DTO", "PPC.ResourceAccess.Pile.DTO\PPC.Utility.DTO.csproj", "{D62C5D7C-846A-4300-BF94-E890B50FB13B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.Pile.FolderAccess", "PPC.ResourceAccess.Pile.FolderAccess\PPC.ResourceAccess.Pile.FolderAccess.csproj", "{8676278F-4970-417C-8FD2-8991E74D72D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.PileSource.FolderAccess", "PPC.ResourceAccess.Pile.FolderAccess\PPC.ResourceAccess.PileSource.FolderAccess.csproj", "{8676278F-4970-417C-8FD2-8991E74D72D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.Manager.Pile", "PPC.Manager.Pile\PPC.Manager.Pile.csproj", "{91C108F3-7F1B-4632-9627-E41C6E27C667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.Engine.Pile", "PPC.Engine.Pile\PPC.Engine.Pile.csproj", "{24663385-9090-40E9-9F56-A335A9981EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreation.Contract", "PPC.ResourceAccess.PileCreation.Contract\PPC.ResourceAccess.PileCreation.Contract.csproj", "{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreation.FolderAccess", "PPC.ResourceAccess.PileCreation.FolderAccess\PPC.ResourceAccess.PileCreation.FolderAccess.csproj", "{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,22 @@ Global
 		{8676278F-4970-417C-8FD2-8991E74D72D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8676278F-4970-417C-8FD2-8991E74D72D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8676278F-4970-417C-8FD2-8991E74D72D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C108F3-7F1B-4632-9627-E41C6E27C667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C108F3-7F1B-4632-9627-E41C6E27C667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C108F3-7F1B-4632-9627-E41C6E27C667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C108F3-7F1B-4632-9627-E41C6E27C667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24663385-9090-40E9-9F56-A335A9981EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24663385-9090-40E9-9F56-A335A9981EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24663385-9090-40E9-9F56-A335A9981EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24663385-9090-40E9-9F56-A335A9981EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

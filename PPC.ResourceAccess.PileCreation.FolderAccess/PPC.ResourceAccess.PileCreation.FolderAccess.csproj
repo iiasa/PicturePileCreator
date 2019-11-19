@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PPC.ResourceAccess.PileCreation.Contract\PPC.ResourceAccess.PileCreation.Contract.csproj" />
+  </ItemGroup>
+
+</Project>
