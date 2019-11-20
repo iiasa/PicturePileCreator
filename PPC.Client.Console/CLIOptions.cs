@@ -1,15 +1,9 @@
 using CommandLine;
 
-namespace PPC_Console_Client
+namespace PPC.Client.Console
 {
     public class CLIOptions
     {
-        /*
-        [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
-        public bool Verbose { get; set; }
-        */
-
-
         [Option('s', "source-folder", Required = true, HelpText = "Pass path to folder containing pile information.")]
         public string SourceFolder { get; set; }
 

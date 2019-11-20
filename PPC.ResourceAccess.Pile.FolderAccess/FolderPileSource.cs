@@ -1,8 +1,8 @@
-﻿namespace PPC.ResourceAccess.Pile.FolderAccess
+﻿namespace PPC.ResourceAccess.PileSource.Folder
 {
-    using System.Collections.Generic;
-    using PPC.ResourceAccess.Contract;
+    using PPC.ResourceAccess.PileSource.Contract;
     using PPC.Utility.DTO;
+    using System.Collections.Generic;
 
     public class FolderPileSource : IPileSource
     {
@@ -32,6 +32,31 @@
         }
 
         public void SetPileSource(string sourceAccessDescriptor)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool SourceDescriptorIsValid(object sourceDescriptor)
+        {
+            return (sourceDescriptor is string);
+        }
+
+        List<Tile> IPileSource.ReadExampleTiles()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        List<Tile> IPileSource.ReadExpertTiles()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        PileDefinition IPileSource.ReadPileDefinition()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        List<Tile> IPileSource.ReadValidationTiles()
         {
             throw new System.NotImplementedException();
         }

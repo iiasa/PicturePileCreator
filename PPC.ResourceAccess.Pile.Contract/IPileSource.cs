@@ -11,5 +11,6 @@ namespace PPC.ResourceAccess.Contract
         List<Tile> ReadValidationTiles();
         List<Tile> ReadExampleTiles();
         List<Tile> ReadExpertTiles();
+        bool SourceDescriptorIsValid(object sourceDescriptor);
     }
 }

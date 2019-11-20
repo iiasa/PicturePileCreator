@@ -1,55 +1,71 @@
-﻿using PPC.Utility.DTO;
-
-namespace PPC.Engine.Pile
+﻿namespace PPC.Engine.Pile
 {
+    using PPC.ResourceAccess.PileCreationTarget;
+    using PPC.ResourceAccess.PileCreationTarget.Contract;
+    using PPC.ResourceAccess.PileSource;
+    using PPC.ResourceAccess.PileSource.Contract;
+    using PPC.Utility.DTO;
+
     public class PileEngine : IPileEngine
     {
+        public IPileSource PileSource { get; private set; }
+        public IPileCreationTarget PileCreationTarget { get; private set; }
+
+        public PileEngine()
+        {
+            PileSource = PileSourceFactory.GetPileSource(PileSourceType.Folder);
+            PileCreationTarget = PileCreationTargetFactory.GetPileCreationTarget(PileCreationTargetType.Folder);
+        }
+
         public PileDefinition ReadPileDefinition(object sourceDescriptor)
         {
-            throw new System.NotImplementedException();
+            PileDefinition pileDefinition = null;
+            PileSourceCheckResult pileSourceCheckResult = PileSource.CheckPileSource(sourceDescriptor);
+
+            if (pileSourceCheckResult == PileSourceCheckResult.PileSourceOK)
+            {
+                pileDefinition = PileSource.ReadPileDefinition(sourceDescriptor);
+            }
+
+            return pileDefinition;
         }
 
         public bool SourceDescriptorIsValid(object sourceDescriptor)
         {
-            throw new System.NotImplementedException();
+            return PileSource.SourceDescriptorIsValid(sourceDescriptor);
         }
 
         public bool TargetDescriptorIsValid(object targetDescriptor)
         {
-            throw new System.NotImplementedException();
+            return PileCreationTarget.TargetDescriptorIsValid(targetDescriptor);
         }
 
         public bool WritePileDefinition(PileDefinition pileDefinition, object targetDescriptor)
-        {
-            throw new System.NotImplementedException();
+        {   
+            // TODO: Cleanup pilecreation result enum (split) and don't reuse pileCreationResult
+            PileCreationResult pileCreationResult = PileCreationTarget.CheckPileCreationTarget(targetDescriptor);
+
+            if (pileCreationResult == PileCreationResult.Ok)
+            {
+                pileCreationResult = PileCreationTarget.WritePileDefinition(targetDescriptor);
+            }
+            
+            return pileCreationResult == PileCreationResult.Ok;
         }
 
-
-
-
-        public ProcessPileDefinitionResult ProcessPileDefinition(string sourceDescriptor)
+        public bool WriteTiles(PileDefinition pileDefinition, object targetDescriptor, int pileId, int mediaItemGroupId)
         {
-            IPileEngine pileEngine = PileEngineFactory.GetPileEngine();
+            // TODO: Cleanup pilecreation result enum (split) and don't reuse pileCreationResult
+            PileCreationResult pileCreationResult = PileCreationTarget.CheckPileCreationTarget(targetDescriptor);
 
-
-            IPileSource pileSource = new FolderPileSource();
-
-
-            pileSource.setPileSource(foldername);
-            PileSourceCheckResult result = pileSource.checkPileSource();
-
-            if (result == PileSourceCheckResult.PileSourceOK)
+            if (pileCreationResult == PileCreationResult.Ok)
             {
-                PileDefinition pileDefinition = pileSource.readPileDefinition();
+                pileCreationResult = PileCreationTarget.WriteValidationTiles(targetDescriptor, pileId, mediaItemGroupId);
+                pileCreationResult = PileCreationTarget.WriteExampleTiles(targetDescriptor, pileId, mediaItemGroupId);
+                pileCreationResult = PileCreationTarget.WriteExpertTiles(targetDescriptor, pileId, mediaItemGroupId);
+            }
 
-                List<Tile> validationTiles = pileSource.readValidationTiles();
-                List<Tile> exampleTiles = pileSource.readExampleTiles();
-                List<Tile> expertTiles = pileSource.readExpertTiles();
-            }
-            else
-            {
-                // TODO: Output for failed pile source check
-            }
+            return pileCreationResult == PileCreationResult.Ok;
         }
     }
 }

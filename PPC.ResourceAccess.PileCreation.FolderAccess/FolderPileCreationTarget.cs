@@ -1,8 +1,8 @@
-﻿namespace PPC.ResourceAccess.PileCreation.FolderAccess
+﻿namespace PPC.ResourceAccess.PileCreationTarget.Folder
 {
-    using PPC.ResourceAccess.PileCreation.Contract;
+    using PPC.ResourceAccess.PileCreationTarget.Contract;
 
-    class FolderPileCreationTarget : IPileCreationTarget
+    public class FolderPileCreationTarget : IPileCreationTarget
     {
         public PileCreationResult CheckPileCreationTarget()
         {
@@ -10,6 +10,11 @@
         }
 
         public void SetPileCreationTarget(object sourceAccessDescriptor)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool TargetDescriptorIsValid(object targetDescriptor)
         {
             throw new System.NotImplementedException();
         }

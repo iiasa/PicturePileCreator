@@ -1,10 +1,16 @@
-namespace PPC.ResourceAccess.Pile.DAO.Exception
+namespace PPC.Utility.DTO.Exception
 {
-    using System;
-    
-    public class ResourceMissing : Exception
+    public class ResourceMissingException : System.Exception
     {
-        public ResourceMissing()
+        public ResourceMissingException()
+        {
+        }
+
+        public ResourceMissingException(string message) : base(message)
+        {
+        }
+
+        public ResourceMissingException(string message, System.Exception innerException) : base(message, innerException)
         {
         }
     }

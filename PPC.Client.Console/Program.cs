@@ -1,4 +1,4 @@
-﻿namespace PPC_Console_Client
+﻿namespace PPC.Client.Console
 {
     using System;
     using CommandLine;

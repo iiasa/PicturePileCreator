@@ -5,21 +5,23 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.Client.Console", "PPC.Client.Console\PPC.Client.Console.csproj", "{9E867F23-F548-47AE-9713-66831B7D444A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.PileSource.Contract", "PPC.ResourceAccess.Pile.Contract\PPC.ResourceAccess.PileSource.Contract.csproj", "{29E1B7FC-D109-406F-9B04-7EC431D2C339}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.Utility.DTO", "PPC.ResourceAccess.Pile.DTO\PPC.Utility.DTO.csproj", "{D62C5D7C-846A-4300-BF94-E890B50FB13B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.PileSource.FolderAccess", "PPC.ResourceAccess.Pile.FolderAccess\PPC.ResourceAccess.PileSource.FolderAccess.csproj", "{8676278F-4970-417C-8FD2-8991E74D72D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPC.ResourceAccess.PileSource.Folder", "PPC.ResourceAccess.Pile.FolderAccess\PPC.ResourceAccess.PileSource.Folder.csproj", "{8676278F-4970-417C-8FD2-8991E74D72D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.Manager.Pile", "PPC.Manager.Pile\PPC.Manager.Pile.csproj", "{91C108F3-7F1B-4632-9627-E41C6E27C667}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.Engine.Pile", "PPC.Engine.Pile\PPC.Engine.Pile.csproj", "{24663385-9090-40E9-9F56-A335A9981EC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreation.Contract", "PPC.ResourceAccess.PileCreation.Contract\PPC.ResourceAccess.PileCreation.Contract.csproj", "{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreation.FolderAccess", "PPC.ResourceAccess.PileCreation.FolderAccess\PPC.ResourceAccess.PileCreation.FolderAccess.csproj", "{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreationTarget.Folder", "PPC.ResourceAccess.PileCreation.FolderAccess\PPC.ResourceAccess.PileCreationTarget.Folder.csproj", "{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileSource", "PPC.ResourceAccess.PileSource\PPC.ResourceAccess.PileSource.csproj", "{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreationTarget", "PPC.ResourceAccess.PileCreationTarget\PPC.ResourceAccess.PileCreationTarget.csproj", "{22757025-8D0D-4454-A2B4-206BE70374A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreationTarget.Contract", "PPC.ResourceAccess.PileCreationTarget.Contract\PPC.ResourceAccess.PileCreationTarget.Contract.csproj", "{DEFDD98A-0A27-4B11-AFB3-EC53BB4AA7EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileSource.Contract", "PPC.ResourceAccess.PileSource.Contract\PPC.ResourceAccess.PileSource.Contract.csproj", "{A46026C0-56D4-4EF5-9DE3-91F271E431C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +33,6 @@ Global
 		{9E867F23-F548-47AE-9713-66831B7D444A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E867F23-F548-47AE-9713-66831B7D444A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E867F23-F548-47AE-9713-66831B7D444A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29E1B7FC-D109-406F-9B04-7EC431D2C339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29E1B7FC-D109-406F-9B04-7EC431D2C339}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29E1B7FC-D109-406F-9B04-7EC431D2C339}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29E1B7FC-D109-406F-9B04-7EC431D2C339}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D62C5D7C-846A-4300-BF94-E890B50FB13B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D62C5D7C-846A-4300-BF94-E890B50FB13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D62C5D7C-846A-4300-BF94-E890B50FB13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,10 +49,6 @@ Global
 		{24663385-9090-40E9-9F56-A335A9981EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24663385-9090-40E9-9F56-A335A9981EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24663385-9090-40E9-9F56-A335A9981EC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E952CD04-F4FC-43DC-AFAE-1DB0946B624E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +57,18 @@ Global
 		{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22757025-8D0D-4454-A2B4-206BE70374A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22757025-8D0D-4454-A2B4-206BE70374A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22757025-8D0D-4454-A2B4-206BE70374A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22757025-8D0D-4454-A2B4-206BE70374A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEFDD98A-0A27-4B11-AFB3-EC53BB4AA7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEFDD98A-0A27-4B11-AFB3-EC53BB4AA7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEFDD98A-0A27-4B11-AFB3-EC53BB4AA7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEFDD98A-0A27-4B11-AFB3-EC53BB4AA7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A46026C0-56D4-4EF5-9DE3-91F271E431C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46026C0-56D4-4EF5-9DE3-91F271E431C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46026C0-56D4-4EF5-9DE3-91F271E431C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A46026C0-56D4-4EF5-9DE3-91F271E431C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PPC.ResourceAccess.Pile.FolderAccess\PPC.ResourceAccess.PileSource.Folder.csproj" />
-    <ProjectReference Include="..\PPC.ResourceAccess.PileSource.Contract\PPC.ResourceAccess.PileSource.Contract.csproj" />
+    <ProjectReference Include="..\PPC.ResourceAccess.PileCreation.FolderAccess\PPC.ResourceAccess.PileCreationTarget.Folder.csproj" />
+    <ProjectReference Include="..\PPC.ResourceAccess.PileCreationTarget.Contract\PPC.ResourceAccess.PileCreationTarget.Contract.csproj" />
   </ItemGroup>
 
 </Project>

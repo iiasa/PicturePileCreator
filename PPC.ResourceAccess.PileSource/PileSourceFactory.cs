@@ -1,10 +1,11 @@
-﻿using PPC.ResourceAccess.Pile.FolderAccess;
+﻿using PPC.ResourceAccess.PileSource.Contract;
+using PPC.ResourceAccess.PileSource.Folder;
 
-namespace PPC.ResourceAccess.Contract
+namespace PPC.ResourceAccess.PileSource
 {
-    public class PileSourceFactory
+    public static class PileSourceFactory
     {
-        public IPileSource GetPileSource(PileSourceType pileSourceType) 
+        public static IPileSource GetPileSource(PileSourceType pileSourceType) 
         {
             switch (pileSourceType) 
             {

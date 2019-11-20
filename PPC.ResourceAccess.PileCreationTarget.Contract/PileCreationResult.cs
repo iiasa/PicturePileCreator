@@ -2,10 +2,12 @@
 {
     public enum PileCreationResult
     {
+        InvalidAccessor,
         Successful,
         InvalidTargetFailed,
         WritingPileDefinitionFailed,
         WritingPileTilesFailed,
-        Failed
+        Failed,
+        Ok
     }
 }

@@ -5,7 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PPC.ResourceAccess.Pile.DTO\PPC.Utility.DTO.csproj" />
+    <ProjectReference Include="..\PPC.ResourceAccess.PileCreationTarget\PPC.ResourceAccess.PileCreationTarget.csproj" />
+    <ProjectReference Include="..\PPC.ResourceAccess.PileSource\PPC.ResourceAccess.PileSource.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace PPC.ResourceAccess.Contract
+﻿namespace PPC.ResourceAccess.PileSource
 {
     public enum PileSourceType
     {

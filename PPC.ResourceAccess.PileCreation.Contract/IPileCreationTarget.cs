@@ -1,4 +1,4 @@
-﻿namespace PPC.ResourceAccess.PileCreation.Contract
+﻿namespace PPC.ResourceAccess.PileCreationTarget.Contract
 {
     public interface IPileCreationTarget
     {
@@ -9,5 +9,6 @@
         PileCreationResult WriteValidationTiles();
         PileCreationResult WriteExampleTiles();
         PileCreationResult WriteExpertTiles();
+        bool TargetDescriptorIsValid(object targetDescriptor);
     }
 }
