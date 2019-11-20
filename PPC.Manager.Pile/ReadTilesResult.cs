@@ -2,5 +2,10 @@
 {
     public enum ReadTilesResult
     {
+        SourceDescriptorInvalid,
+        PileDefinitionUnreadable,
+        FailedWritingTiles,
+        TargetDescriptorInvalid,
+        Success
     }
 }

@@ -1,47 +1,45 @@
 ﻿using PPC.Engine.Pile;
+using PPC.Utility.DTO;
 
 namespace PPC.Manager.Pile
 {
     class PileManager : IPileManager
     {
+        private IPileEngine pileEngine;
 
-        public ReadPileDefinitionResult ProcessPileDefinition(object sourceDescriptor)
+        public IPileEngine PileEngine { get => pileEngine; }
+
+        public PileManager()
         {
-            if (!(sourceDescriptor is string)) return ReadPileDefinitionResult.SourceDescriptorInvalid; 
-            throw new System.NotImplementedException();
+            pileEngine = PileEngineFactory.GetPileEngine();
         }
 
-        public ReadTilesResult ProcessTiles(object sourceDescriptor, int pileId, int mediaItemGroupId)
+        public ProcessPileDefinitionResult ProcessPileDefinition(object sourceDescriptor, object targetDescriptor)
         {
-            throw new System.NotImplementedException();
+            if (!pileEngine.SourceDescriptorIsValid(sourceDescriptor)) return ProcessPileDefinitionResult.SourceDescriptorInvalid;
+            if (!pileEngine.TargetDescriptorIsValid(targetDescriptor)) return ProcessPileDefinitionResult.TargetDescriptorInvalid;
+
+            PileDefinition pileDefinition = pileEngine.ReadPileDefinition(sourceDescriptor);
+            if (pileDefinition == null) return ProcessPileDefinitionResult.PileDefinitionUnreadable;
+
+            bool success = pileEngine.WritePileDefinition(pileDefinition, targetDescriptor);
+            if (success == false) return ProcessPileDefinitionResult.FailedWritingPileDefinition;
+
+            return ProcessPileDefinitionResult.Success;
         }
 
-
-
-
-        public ReadPileDefinitionResult ProcessPileDefinition(string sourceDescriptor)
+        public ReadTilesResult ProcessTiles(object sourceDescriptor, object targetDescriptor, int pileId, int mediaItemGroupId)
         {
-            IPileEngine pileEngine = PileEngineFactory.GetPileEngine();
+            if (!pileEngine.SourceDescriptorIsValid(sourceDescriptor)) return ReadTilesResult.SourceDescriptorInvalid;
+            if (!pileEngine.TargetDescriptorIsValid(targetDescriptor)) return ReadTilesResult.TargetDescriptorInvalid;
 
+            PileDefinition pileDefinition = pileEngine.ReadPileDefinition(sourceDescriptor);
+            if (pileDefinition == null) return ReadTilesResult.PileDefinitionUnreadable;
 
-            IPileSource pileSource = new FolderPileSource();
+            bool success = pileEngine.WriteTiles(pileDefinition, targetDescriptor, pileId, mediaItemGroupId);
+            if (success == false) return ReadTilesResult.FailedWritingTiles;
 
-
-            pileSource.setPileSource(foldername);
-            PileSourceCheckResult result = pileSource.checkPileSource();
-
-            if (result == PileSourceCheckResult.PileSourceOK)
-            {
-                PileDefinition pileDefinition = pileSource.readPileDefinition();
-
-                List<Tile> validationTiles = pileSource.readValidationTiles();
-                List<Tile> exampleTiles = pileSource.readExampleTiles();
-                List<Tile> expertTiles = pileSource.readExpertTiles();
-            }
-            else
-            {
-                // TODO: Output for failed pile source check
-            }
+            return ReadTilesResult.Success;
         }
     }
 }

@@ -10,8 +10,11 @@ namespace PPC_Console_Client
         */
 
 
-        [Option('f', "folder", Required = true, HelpText = "Pass path to folder containing pile information.")]
-        public string Folder { get; set; }
+        [Option('s', "source-folder", Required = true, HelpText = "Pass path to folder containing pile information.")]
+        public string SourceFolder { get; set; }
+
+        [Option('t', "target-folder", Required = true, HelpText = "Pass path to folder for writing to.")]
+        public string TargetFolder { get; set; }
 
         [Option('d', "definition", Required = false, HelpText = "Set to output pile definition")]
         public bool WritePileDefinition { get; set; }

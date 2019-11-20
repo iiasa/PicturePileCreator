@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCrea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileCreation.FolderAccess", "PPC.ResourceAccess.PileCreation.FolderAccess\PPC.ResourceAccess.PileCreation.FolderAccess.csproj", "{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPC.ResourceAccess.PileSource", "PPC.ResourceAccess.PileSource\PPC.ResourceAccess.PileSource.csproj", "{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CBB55F-62EF-4E9E-8DE5-DD1716FB4679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F344F3-31E5-4E5B-87F8-3761CCC4486F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

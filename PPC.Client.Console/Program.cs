@@ -12,14 +12,12 @@
                 .WithParsed<CLIOptions>(
                     options =>
                     {
-                        string foldername = options.Folder;
-
                         IPileManager pileManager = PileManagerFactory.getPileManager();
 
 
                         if (options.WritePileDefinition) 
                         {
-                            ReadPileDefinitionResult readPileDefinitionResult = pileManager.ProcessPileDefinition(foldername);
+                            ProcessPileDefinitionResult readPileDefinitionResult = pileManager.ProcessPileDefinition(options.SourceFolder, options.TargetFolder);
                         }
                         else 
                         {
@@ -39,7 +37,8 @@
                                 Console.WriteLine("You did not specify a mediaitem group id. For creating tile inserts this is necessary. Please consult the --help for further information.");
                                 return;
                             }
-                            ReadTilesResult readTilesResult = pileManager.ProcessTiles(foldername, (int) options.PileId, (int) options.MediaItemGroupId);
+                            ReadTilesResult readTilesResult = pileManager.ProcessTiles(
+                                options.SourceFolder, options.TargetFolder, (int) options.PileId, (int) options.MediaItemGroupId);
                         }
                         else
                         {

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using PPC.ResourceAccess.Contract;
-using PPC.ResourceAccess.Pile.DAO;
-
-namespace PPC.ResourceAccess.Pile.FolderAccess
+﻿namespace PPC.ResourceAccess.Pile.FolderAccess
 {
+    using System.Collections.Generic;
+    using PPC.ResourceAccess.Contract;
+    using PPC.Utility.DTO;
+
     public class FolderPileSource : IPileSource
     {
         public PileSourceCheckResult CheckPileSource()
@@ -11,22 +11,22 @@ namespace PPC.ResourceAccess.Pile.FolderAccess
             throw new System.NotImplementedException();
         }
 
-        public List<Tile> readExampleTiles()
+        public List<Tile> ReadExampleTiles()
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Tile> readExpertTiles()
+        public List<Tile> ReadExpertTiles()
         {
             throw new System.NotImplementedException();
         }
 
-        public PileDefinition readPileDefinition()
+        public PileDefinition ReadPileDefinition()
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Tile> readValidationTiles()
+        public List<Tile> ReadValidationTiles()
         {
             throw new System.NotImplementedException();
         }

@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using PPC.Utility.DTO;
-
 namespace PPC.ResourceAccess.Contract
 {
+    using System.Collections.Generic;
+    using PPC.Utility.DTO;
+
     public interface IPileSource
     {
         void SetPileSource(string sourceAccessDescriptor);
