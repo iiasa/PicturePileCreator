@@ -1,4 +1,4 @@
-﻿namespace PPC.ResourceAccess.PileCreation.DTO
+﻿namespace PPC.ResourceAccess.PileCreation.Contract
 {
     public enum PileCreationResult
     {

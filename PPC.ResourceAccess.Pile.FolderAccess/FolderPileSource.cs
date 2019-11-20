@@ -6,7 +6,7 @@ namespace PPC.ResourceAccess.Pile.FolderAccess
 {
     public class FolderPileSource : IPileSource
     {
-        public PileSourceCheckResult checkPileSource()
+        public PileSourceCheckResult CheckPileSource()
         {
             throw new System.NotImplementedException();
         }
@@ -31,7 +31,7 @@ namespace PPC.ResourceAccess.Pile.FolderAccess
             throw new System.NotImplementedException();
         }
 
-        public void setPileSource(string sourceAccessDescriptor)
+        public void SetPileSource(string sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }

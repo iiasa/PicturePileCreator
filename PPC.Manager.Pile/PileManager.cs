@@ -5,13 +5,13 @@ namespace PPC.Manager.Pile
     class PileManager : IPileManager
     {
 
-        public ReadPileDefinitionResult processPileDefinition(object sourceDescriptor)
+        public ReadPileDefinitionResult ProcessPileDefinition(object sourceDescriptor)
         {
             if (!(sourceDescriptor is string)) return ReadPileDefinitionResult.SourceDescriptorInvalid; 
             throw new System.NotImplementedException();
         }
 
-        public ReadTilesResult processTiles(object sourceDescriptor, int pileId, int mediaItemGroupId)
+        public ReadTilesResult ProcessTiles(object sourceDescriptor, int pileId, int mediaItemGroupId)
         {
             throw new System.NotImplementedException();
         }
@@ -19,7 +19,7 @@ namespace PPC.Manager.Pile
 
 
 
-        public ReadPileDefinitionResult processPileDefinition(string sourceDescriptor)
+        public ReadPileDefinitionResult ProcessPileDefinition(string sourceDescriptor)
         {
             IPileEngine pileEngine = PileEngineFactory.GetPileEngine();
 

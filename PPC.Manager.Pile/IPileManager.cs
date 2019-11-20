@@ -2,8 +2,8 @@
 {
     public interface IPileManager
     {
-        public ReadPileDefinitionResult processPileDefinition(object sourceDescriptor);
+        ReadPileDefinitionResult ProcessPileDefinition(object sourceDescriptor);
 
-        public ReadTilesResult processTiles(object sourceDescriptor, int pileId, int mediaItemGroupId);
+        ReadTilesResult ProcessTiles(object sourceDescriptor, int pileId, int mediaItemGroupId);
     }
 }

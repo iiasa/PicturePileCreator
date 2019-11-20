@@ -1,35 +1,35 @@
 ﻿namespace PPC.ResourceAccess.PileCreation.FolderAccess
 {
-    using PPC.ResourceAccess.PileCreation.DTO;
+    using PPC.ResourceAccess.PileCreation.Contract;
 
     class FolderPileCreationTarget : IPileCreationTarget
     {
-        public PileCreationResult checkPileCreationTarget()
+        public PileCreationResult CheckPileCreationTarget()
         {
             throw new System.NotImplementedException();
         }
 
-        public void setPileCreationTarget(object sourceAccessDescriptor)
+        public void SetPileCreationTarget(object sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
-        public PileCreationResult writeExampleTiles()
+        public PileCreationResult WriteExampleTiles()
         {
             throw new System.NotImplementedException();
         }
 
-        public PileCreationResult writeExpertTiles()
+        public PileCreationResult WriteExpertTiles()
         {
             throw new System.NotImplementedException();
         }
 
-        public PileCreationResult writePileDefinition()
+        public PileCreationResult WritePileDefinition()
         {
             throw new System.NotImplementedException();
         }
 
-        public PileCreationResult writeValidationTiles()
+        public PileCreationResult WriteValidationTiles()
         {
             throw new System.NotImplementedException();
         }

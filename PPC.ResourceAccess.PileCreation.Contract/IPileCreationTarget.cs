@@ -1,13 +1,13 @@
-﻿namespace PPC.ResourceAccess.PileCreation.DTO
+﻿namespace PPC.ResourceAccess.PileCreation.Contract
 {
     public interface IPileCreationTarget
     {
-        public void setPileCreationTarget(object sourceAccessDescriptor);
+        void SetPileCreationTarget(object sourceAccessDescriptor);
 
-        public PileCreationResult checkPileCreationTarget();
-        public PileCreationResult writePileDefinition();
-        public PileCreationResult writeValidationTiles();
-        public PileCreationResult writeExampleTiles();
-        public PileCreationResult writeExpertTiles();
+        PileCreationResult CheckPileCreationTarget();
+        PileCreationResult WritePileDefinition();
+        PileCreationResult WriteValidationTiles();
+        PileCreationResult WriteExampleTiles();
+        PileCreationResult WriteExpertTiles();
     }
 }
