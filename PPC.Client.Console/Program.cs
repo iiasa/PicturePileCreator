@@ -1,8 +1,8 @@
 ﻿namespace PPC.Client.Console
 {
-    using System;
     using CommandLine;
     using PPC.Manager.Pile;
+    using System;
 
     class Program
     {
@@ -15,11 +15,11 @@
                         IPileManager pileManager = PileManagerFactory.getPileManager();
 
 
-                        if (options.WritePileDefinition) 
+                        if (options.WritePileDefinition)
                         {
                             ProcessPileDefinitionResult readPileDefinitionResult = pileManager.ProcessPileDefinition(options.SourceFolder, options.TargetFolder);
                         }
-                        else 
+                        else
                         {
                             Console.WriteLine("Not writing pile definition.");
                         }
@@ -38,7 +38,7 @@
                                 return;
                             }
                             ReadTilesResult readTilesResult = pileManager.ProcessTiles(
-                                options.SourceFolder, options.TargetFolder, (int) options.PileId, (int) options.MediaItemGroupId);
+                                options.SourceFolder, options.TargetFolder, (int)options.PileId, (int)options.MediaItemGroupId);
                         }
                         else
                         {
@@ -46,7 +46,7 @@
                         }
                     })
                 .WithNotParsed(
-                    errors => 
+                    errors =>
                     {
                         Console.WriteLine("Parsing parameters has failed due to the following problem(s):");
                         foreach (var error in errors)

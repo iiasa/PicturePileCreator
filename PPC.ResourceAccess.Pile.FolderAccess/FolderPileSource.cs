@@ -6,57 +6,37 @@
 
     public class FolderPileSource : IPileSource
     {
-        public PileSourceCheckResult CheckPileSource()
+        public void SetPileSource(object sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Tile> ReadExampleTiles()
+        public PileSourceCheckResult CheckPileSource(object sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Tile> ReadExpertTiles()
+        public PileDefinition ReadPileDefinition(object sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
-        public PileDefinition ReadPileDefinition()
+        public List<Tile> ReadValidationTiles(object sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Tile> ReadValidationTiles()
+        public List<Tile> ReadExampleTiles(object sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
-        public void SetPileSource(string sourceAccessDescriptor)
+        public List<Tile> ReadExpertTiles(object sourceAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
         public bool SourceDescriptorIsValid(object sourceDescriptor)
-        {
-            return (sourceDescriptor is string);
-        }
-
-        List<Tile> IPileSource.ReadExampleTiles()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        List<Tile> IPileSource.ReadExpertTiles()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        PileDefinition IPileSource.ReadPileDefinition()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        List<Tile> IPileSource.ReadValidationTiles()
         {
             throw new System.NotImplementedException();
         }

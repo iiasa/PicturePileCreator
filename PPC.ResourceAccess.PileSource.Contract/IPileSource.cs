@@ -1,7 +1,7 @@
 namespace PPC.ResourceAccess.PileSource.Contract
 {
-    using System.Collections.Generic;
     using PPC.Utility.DTO;
+    using System.Collections.Generic;
 
     public interface IPileSource
     {

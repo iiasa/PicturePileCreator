@@ -41,7 +41,7 @@
         }
 
         public bool WritePileDefinition(PileDefinition pileDefinition, object targetDescriptor)
-        {   
+        {
             // TODO: Cleanup pilecreation result enum (split) and don't reuse pileCreationResult
             PileCreationResult pileCreationResult = PileCreationTarget.CheckPileCreationTarget(targetDescriptor);
 
@@ -49,7 +49,7 @@
             {
                 pileCreationResult = PileCreationTarget.WritePileDefinition(targetDescriptor);
             }
-            
+
             return pileCreationResult == PileCreationResult.Ok;
         }
 

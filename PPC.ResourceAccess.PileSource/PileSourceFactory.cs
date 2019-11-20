@@ -5,9 +5,9 @@ namespace PPC.ResourceAccess.PileSource
 {
     public static class PileSourceFactory
     {
-        public static IPileSource GetPileSource(PileSourceType pileSourceType) 
+        public static IPileSource GetPileSource(PileSourceType pileSourceType)
         {
-            switch (pileSourceType) 
+            switch (pileSourceType)
             {
                 case PileSourceType.Folder:
                     return new FolderPileSource();

@@ -1,5 +1,5 @@
-﻿namespace PPC.Utility.DTO 
-{ 
+﻿namespace PPC.Utility.DTO
+{
     public class ValidationTile : Tile
     {
     }

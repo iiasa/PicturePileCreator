@@ -4,37 +4,37 @@
 
     public class FolderPileCreationTarget : IPileCreationTarget
     {
-        public PileCreationResult CheckPileCreationTarget()
+        public void SetPileCreationTarget(object targetAccessDescriptor)
         {
             throw new System.NotImplementedException();
         }
 
-        public void SetPileCreationTarget(object sourceAccessDescriptor)
+        public PileCreationResult CheckPileCreationTarget(object targetAccessDescriptor)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public PileCreationResult WritePileDefinition(object targetAccessDescriptor)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public PileCreationResult WriteValidationTiles(object targetAccessDescriptor, int pileId, int mediaItemGroupId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public PileCreationResult WriteExampleTiles(object targetAccessDescriptor, int pileId, int mediaItemGroupId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public PileCreationResult WriteExpertTiles(object targetAccessDescriptor, int pileId, int mediaItemGroupId)
         {
             throw new System.NotImplementedException();
         }
 
         public bool TargetDescriptorIsValid(object targetDescriptor)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public PileCreationResult WriteExampleTiles()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public PileCreationResult WriteExpertTiles()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public PileCreationResult WritePileDefinition()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public PileCreationResult WriteValidationTiles()
         {
             throw new System.NotImplementedException();
         }
