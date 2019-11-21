@@ -2,9 +2,15 @@
 {
     public static class PileEngineFactory
     {
-        public static IPileEngine GetPileEngine()
+        public static IPileEngine GetPileEngine(PileEngineType pileEngineType)
         {
-            return new PileEngine();
+            switch (pileEngineType)
+            {
+                case PileEngineType.Default:
+                    return new DefaultPileEngine();
+                default:
+                    return new DefaultPileEngine();
+            }
         }
     }
 }

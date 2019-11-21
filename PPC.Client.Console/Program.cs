@@ -12,7 +12,7 @@
                 .WithParsed<CLIOptions>(
                     options =>
                     {
-                        IPileManager pileManager = PileManagerFactory.getPileManager();
+                        IPileManager pileManager = PileManagerFactory.GetPileManager(PileManagerType.Default);
 
 
                         if (options.WritePileDefinition)
@@ -21,9 +21,8 @@
                         }
                         else
                         {
-                            Console.WriteLine("Not writing pile definition.");
+                            Console.WriteLine("Not writing pile definition. (use switch -d to produce pile definition output)");
                         }
-
 
                         if (options.WriteTiles)
                         {
@@ -38,11 +37,11 @@
                                 return;
                             }
                             ReadTilesResult readTilesResult = pileManager.ProcessTiles(
-                                options.SourceFolder, options.TargetFolder, (int)options.PileId, (int)options.MediaItemGroupId);
+                                options.SourceFolder, options.TargetFolder, (int)options.PileId, (int)options.MediaItemGroupId, options.AddPileIdAsPrefix);
                         }
                         else
                         {
-                            Console.WriteLine("Not writing tiles.");
+                            Console.WriteLine("Not writing tiles. (use switch -w to produce tile output)");
                         }
                     })
                 .WithNotParsed(

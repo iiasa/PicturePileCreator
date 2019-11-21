@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PPC.ResourceAccess.Pile.DTO\PPC.Utility.DTO.csproj" />
     <ProjectReference Include="..\PPC.ResourceAccess.PileCreationTarget.Contract\PPC.ResourceAccess.PileCreationTarget.Contract.csproj" />
   </ItemGroup>
 

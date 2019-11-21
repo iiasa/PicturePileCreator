@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PPC.Client.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "-s \"E:\\Temp\\restore+PP\\first insert\" -t \"E:\\Temp\\restore+PP\\fi_target\" -d -w -m 12 -p 13 -a"
+    }
+  }
+}

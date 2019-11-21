@@ -2,9 +2,15 @@
 {
     public static class PileManagerFactory
     {
-        public static IPileManager getPileManager()
+        public static IPileManager GetPileManager(PileManagerType pileManagerType)
         {
-            return new PileManager();
+            switch (pileManagerType)
+            {
+                case PileManagerType.Default:
+                    return new DefaultPileManager();
+                default:
+                    return new DefaultPileManager();
+            }
         }
     }
 }

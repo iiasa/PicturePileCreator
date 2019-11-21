@@ -1,4 +1,10 @@
-﻿namespace PPC.ResourceAccess.PileCreationTarget.Folder
+﻿using System;
+using System.IO;
+using System.Net;
+using System.Runtime.InteropServices.WindowsRuntime;
+using PPC.Utility.DTO;
+
+namespace PPC.ResourceAccess.PileCreationTarget.Folder
 {
     using PPC.ResourceAccess.PileCreationTarget.Contract;
 
@@ -11,12 +17,26 @@
 
         public PileCreationResult CheckPileCreationTarget(object targetAccessDescriptor)
         {
-            throw new System.NotImplementedException();
+            string folderName = (string) targetAccessDescriptor;
+            if (!Directory.Exists(folderName)) return  PileCreationResult.InvalidAccessor;
+            return PileCreationResult.Ok; // TODO: Use the proper enum for this!
         }
 
-        public PileCreationResult WritePileDefinition(object targetAccessDescriptor)
+        public PileCreationResult WritePileDefinition(object targetAccessDescriptor, PileDefinition pileDefinition)
         {
-            throw new System.NotImplementedException();
+            string folderName = (string)targetAccessDescriptor;
+            string targetFileName = Path.Combine(folderName, "insert_pile_definition.sql");
+            try
+            {
+                if (pileDefinition != null) File.WriteAllText(targetFileName, pileDefinition.SqlInsert);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return PileCreationResult.WritingPileDefinitionFailed;
+            }
+
+            return PileCreationResult.Successful;
         }
 
         public PileCreationResult WriteValidationTiles(object targetAccessDescriptor, int pileId, int mediaItemGroupId)
@@ -34,9 +54,9 @@
             throw new System.NotImplementedException();
         }
 
-        public bool TargetDescriptorIsValid(object targetDescriptor)
+        public bool TargetDescriptorTypeIsValid(object targetDescriptor)
         {
-            throw new System.NotImplementedException();
+            return (targetDescriptor is string);
         }
     }
 }

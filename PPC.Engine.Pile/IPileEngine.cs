@@ -5,9 +5,9 @@
     public interface IPileEngine
     {
         PileDefinition ReadPileDefinition(object sourceDescriptor);
-        bool SourceDescriptorIsValid(object sourceDescriptor);
-        bool TargetDescriptorIsValid(object targetDescriptor);
+        bool SourceDescriptorTypeIsValid(object sourceDescriptor);
+        bool TargetDescriptorTypeIsValid(object targetDescriptor);
         bool WritePileDefinition(PileDefinition pileDefinition, object targetDescriptor);
-        bool WriteTiles(PileDefinition pileDefinition, object targetDescriptor, int pileId, int mediaItemGroupId);
+        bool WriteTiles(PileDefinition pileDefinition, object sourceDescriptor, object targetDescriptor, int pileId, int mediaItemGroupId, bool addPileIdAsPrefix);
     }
 }
