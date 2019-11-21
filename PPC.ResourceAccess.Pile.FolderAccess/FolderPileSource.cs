@@ -20,7 +20,7 @@ namespace PPC.ResourceAccess.PileSource.Folder
 
         public PileSourceCheckResult CheckPileSource(object sourceAccessDescriptor)
         {
-            string folderName = (string) sourceAccessDescriptor;
+            string folderName = (string)sourceAccessDescriptor;
             if (!Checks.SourceFolderExists(folderName)) return PileSourceCheckResult.PileSourceDoesNotExist;
             if (!Checks.SourceFolderContentStructureIsCorrect(folderName)) return PileSourceCheckResult.PileContentMalformed;
             return PileSourceCheckResult.PileSourceOK;
@@ -44,17 +44,22 @@ namespace PPC.ResourceAccess.PileSource.Folder
 
         public List<Tile> ReadValidationTiles(object sourceAccessDescriptor)
         {
-            string directory = Path.Combine((string) sourceAccessDescriptor, "ordinary"); // TODO: checks?
+            string directory = Path.Combine((string)sourceAccessDescriptor, "ordinary"); // TODO: checks?
             List<string> fileNames =
-                GetFileNamesFromDirectory(directory, new[] {"*.jpg", "*.jpeg", "*.png"}, new[] {"_scrsh", "_marked"});
-            List<Tile> tiles = fileNames.Select(fileName => new ValidationTile() {filename = fileName}).Cast<Tile>().ToList();
+                GetFileNamesFromDirectory(directory, new[] { "*.jpg", "*.jpeg", "*.png" }, new[] { "_scrsh", "_marked" });
+            List<Tile> tiles = fileNames.Select(fileName => new ValidationTile() { filename = fileName }).Cast<Tile>().ToList();
             return tiles;
         }
 
-        private List<string> GetFileNamesFromDirectory(string directory, string[] validExtensions, string[] postfixesToExclude)
+        private List<string> GetFileNamesFromDirectory(string directory, string[] validExtensions, string[] postfixesToExclude = null)
         {
             List<string> fileNames = new List<string>();
             DirectoryInfo directoryInfo = new DirectoryInfo(directory);
+
+            if (postfixesToExclude == null)
+            {
+                postfixesToExclude = Array.Empty<string>();
+            }
 
             foreach (var extension in validExtensions)
             {
@@ -70,9 +75,9 @@ namespace PPC.ResourceAccess.PileSource.Folder
             string directory = Path.Combine((string)sourceAccessDescriptor, "example"); // TODO: checks?
             List<string> fileNames =
                 GetFileNamesFromDirectory(directory, new[] { "*.jpg", "*.jpeg", "*.png" }, new[] { "_scrsh", "_marked" });
-            
+
             List<AnswerEntry> answers = ReadAnswerFile(Path.Combine((string)sourceAccessDescriptor, "example_answer.csv"));
-            
+
             List<Tile> tiles = fileNames.Select(fileName => new ValidationTile() { filename = fileName }).Cast<Tile>().ToList();
             return tiles;
         }
@@ -92,6 +97,45 @@ namespace PPC.ResourceAccess.PileSource.Folder
         public bool SourceDescriptorTypeIsValid(object sourceDescriptor)
         {
             return (sourceDescriptor is string);
+        }
+
+        public void CopyValidationTilesWithPrefix(object sourceDescriptor, object targetDescriptor, int pileId)
+        {
+            string directory = Path.Combine((string)sourceDescriptor, "ordinary");
+            List<string> fileNames =
+                GetFileNamesFromDirectory(directory, new[] { "*.jpg", "*.jpeg", "*.png" });
+            string targetDirectory = Path.Combine((string)targetDescriptor, "ordinary");
+            Directory.CreateDirectory(targetDirectory);
+            foreach (var fileName in fileNames)
+            {
+                File.Copy(Path.Combine(directory, fileName), Path.Combine(targetDirectory, $"{pileId}_{fileName}"));
+            }
+        }
+
+        public void CopyExpertTilesWithPrefix(object sourceDescriptor, object targetDescriptor, int pileId)
+        {
+            string directory = Path.Combine((string)sourceDescriptor, "expert");
+            List<string> fileNames =
+                GetFileNamesFromDirectory(directory, new[] { "*.jpg", "*.jpeg", "*.png" });
+            string targetDirectory = Path.Combine((string)targetDescriptor, "expert");
+            Directory.CreateDirectory(targetDirectory);
+            foreach (var fileName in fileNames)
+            {
+                File.Copy(Path.Combine(directory, fileName), Path.Combine(targetDirectory, $"{pileId}_{fileName}"));
+            }
+        }
+
+        public void CopyExampleTilesWithPrefix(object sourceDescriptor, object targetDescriptor, int pileId)
+        {
+            string directory = Path.Combine((string)sourceDescriptor, "example");
+            List<string> fileNames =
+                GetFileNamesFromDirectory(directory, new[] { "*.jpg", "*.jpeg", "*.png" });
+            string targetDirectory = Path.Combine((string)targetDescriptor, "example");
+            Directory.CreateDirectory(targetDirectory);
+            foreach (var fileName in fileNames)
+            {
+                File.Copy(Path.Combine(directory, fileName), Path.Combine(targetDirectory, $"{pileId}_{fileName}"));
+            }
         }
 
         private List<AnswerEntry> ReadAnswerFile(string path)

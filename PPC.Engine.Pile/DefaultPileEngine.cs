@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace PPC.Engine.Pile
 {
@@ -63,8 +64,8 @@ namespace PPC.Engine.Pile
 
             if (pileSourceCheckResult == PileSourceCheckResult.PileSourceOK && pileCreationResult == PileCreationResult.Ok)
             { // TODO: properly handle and return each result
-                pileCreationResult = WriteValidationTiles(sourceDescriptor,targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
-                pileCreationResult = WriteExampleTiles(sourceDescriptor,targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
+                pileCreationResult = WriteValidationTiles(sourceDescriptor, targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
+                pileCreationResult = WriteExampleTiles(sourceDescriptor, targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
                 pileCreationResult = WriteExpertTiles(sourceDescriptor, targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
             }
 
@@ -73,13 +74,11 @@ namespace PPC.Engine.Pile
 
         private PileCreationResult WriteValidationTiles(object sourceDescriptor, object targetDescriptor, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
         {
-            //TODO: !!!!!!!!! Read filenames and pass to write functions
             List<Tile> tiles = PileSource.ReadValidationTiles(sourceDescriptor);
 
             if (addTileIdAsPrefix)
             {
-                //Rename and copy files
-                //Update tiles
+                tiles = CopyValidationTiles(sourceDescriptor, targetDescriptor, tiles, pileId);
             }
 
             //Write sql
@@ -89,13 +88,10 @@ namespace PPC.Engine.Pile
 
         private PileCreationResult WriteExpertTiles(object sourceDescriptor, object targetDescriptor, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
         {
-            //TODO: !!!!!!!!! Read filenames and pass to write functions
-
             List<Tile> tiles = PileSource.ReadExpertTiles(sourceDescriptor);
             if (addTileIdAsPrefix)
             {
-                //Rename and copy files
-                //Update tiles
+                tiles = CopyExpertTiles(sourceDescriptor, targetDescriptor, tiles, pileId);
             }
 
             //Write sql
@@ -105,18 +101,48 @@ namespace PPC.Engine.Pile
 
         private PileCreationResult WriteExampleTiles(object sourceDescriptor, object targetDescriptor, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
         {
-            //TODO: !!!!!!!!! Read filenames and pass to write functions
-
             List<Tile> tiles = PileSource.ReadExampleTiles(sourceDescriptor);
             if (addTileIdAsPrefix)
             {
-                //Rename and copy files
-                //Update tiles
+                tiles = CopyExampleTiles(sourceDescriptor, targetDescriptor, tiles, pileId);
             }
 
             //Write sql
 
             return PileCreationResult.Successful;
+        }
+
+        private List<Tile> CopyValidationTiles(object sourceDescriptor, object targetDescriptor, List<Tile> tiles, int pileId)
+        {
+            PileSource.CopyValidationTilesWithPrefix(sourceDescriptor, targetDescriptor, pileId);
+            foreach (var tile in tiles)
+            {
+                tile.filename = $"{pileId}_{tile.filename}";
+            }
+
+            return tiles;
+        }
+
+        private List<Tile> CopyExpertTiles(object sourceDescriptor, object targetDescriptor, List<Tile> tiles, int pileId)
+        {
+            PileSource.CopyExpertTilesWithPrefix(sourceDescriptor, targetDescriptor, pileId);
+            foreach (var tile in tiles)
+            {
+                tile.filename = $"{pileId}_{tile.filename}";
+            }
+
+            return tiles;
+        }
+
+        private List<Tile> CopyExampleTiles(object sourceDescriptor, object targetDescriptor, List<Tile> tiles, int pileId)
+        {
+            PileSource.CopyExampleTilesWithPrefix(sourceDescriptor, targetDescriptor, pileId);
+            foreach (var tile in tiles)
+            {
+                tile.filename = $"{pileId}_{tile.filename}";
+            }
+
+            return tiles;
         }
     }
 }
