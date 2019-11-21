@@ -2,5 +2,6 @@
 {
     public class ExpertTile : Tile
     {
+        public string correctAnswer { get; set; }
     }
 }

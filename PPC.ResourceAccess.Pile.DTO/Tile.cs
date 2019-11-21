@@ -2,5 +2,6 @@
 {
     public abstract class Tile
     {
+        public string filename { get; set; }
     }
 }

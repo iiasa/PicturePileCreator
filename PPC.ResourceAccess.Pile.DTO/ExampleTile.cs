@@ -2,5 +2,6 @@
 {
     public class ExampleTile : Tile
     {
+        public string correctAnswer { get; set; }
     }
 }

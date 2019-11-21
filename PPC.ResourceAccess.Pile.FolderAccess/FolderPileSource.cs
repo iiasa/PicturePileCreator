@@ -18,7 +18,9 @@
 
         public PileDefinition ReadPileDefinition(object sourceAccessDescriptor)
         {
-            throw new System.NotImplementedException();
+            string fileName = (string) sourceAccessDescriptor; // TODO: assert format valid
+            
+            return null;
         }
 
         public List<Tile> ReadValidationTiles(object sourceAccessDescriptor)

@@ -44,21 +44,8 @@
         <e p="PileManager.cs" t="Include" />
         <e p="PileManagerFactory.cs" t="Include" />
         <e p="PPC.Manager.Pile.csproj" t="IncludeRecursive" />
-        <e p="ReadPileDefinitionResult.cs" t="Include" />
+        <e p="ProcessPileDefinitionResult.cs" t="Include" />
         <e p="ReadTilesResult.cs" t="Include" />
-      </e>
-      <e p="PPC.ResourceAccess.Pile.Contract" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IPileSource.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.0" t="Include">
-              <e p="PPC.ResourceAccess.PileSource.Contract.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="PileSourceCheckResult.cs" t="Include" />
-        <e p="PPC.ResourceAccess.PileSource.Contract.csproj" t="IncludeRecursive" />
       </e>
       <e p="PPC.ResourceAccess.Pile.DTO" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -85,24 +72,11 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
-              <e p="PPC.ResourceAccess.PileSource.FolderAccess.AssemblyInfo.cs" t="Include" />
+              <e p="PPC.ResourceAccess.PileSource.Folder.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
-        <e p="PPC.ResourceAccess.PileSource.FolderAccess.csproj" t="IncludeRecursive" />
-      </e>
-      <e p="PPC.ResourceAccess.PileCreation.Contract" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="IPileCreationTarget.cs" t="Include" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.0" t="Include">
-              <e p="PPC.ResourceAccess.PileCreation.Contract.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="PileCreationResult.cs" t="Include" />
-        <e p="PPC.ResourceAccess.PileCreation.Contract.csproj" t="IncludeRecursive" />
+        <e p="PPC.ResourceAccess.PileSource.Folder.csproj" t="IncludeRecursive" />
       </e>
       <e p="PPC.ResourceAccess.PileCreation.FolderAccess" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -110,11 +84,63 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
-              <e p="PPC.ResourceAccess.PileCreation.FolderAccess.AssemblyInfo.cs" t="Include" />
+              <e p="PPC.ResourceAccess.PileCreationTarget.Folder.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
-        <e p="PPC.ResourceAccess.PileCreation.FolderAccess.csproj" t="IncludeRecursive" />
+        <e p="PPC.ResourceAccess.PileCreationTarget.Folder.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="PPC.ResourceAccess.PileCreationTarget" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="PPC.ResourceAccess.PileCreationTarget.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PileCreationTargetFactory.cs" t="Include" />
+        <e p="PileCreationTargetType.cs" t="Include" />
+        <e p="PPC.ResourceAccess.PileCreationTarget.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="PPC.ResourceAccess.PileCreationTarget.Contract" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IPileCreationTarget.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="PPC.ResourceAccess.PileCreationTarget.Contract.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PileCreationResult.cs" t="Include" />
+        <e p="PPC.ResourceAccess.PileCreationTarget.Contract.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="PPC.ResourceAccess.PileSource" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="PPC.ResourceAccess.PileSource.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PileSourceFactory.cs" t="Include" />
+        <e p="PileSourceType.cs" t="Include" />
+        <e p="PPC.ResourceAccess.PileSource.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="PPC.ResourceAccess.PileSource.Contract" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IPileSource.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="PPC.ResourceAccess.PileSource.Contract.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PileSourceCheckResult.cs" t="Include" />
+        <e p="PPC.ResourceAccess.PileSource.Contract.csproj" t="IncludeRecursive" />
       </e>
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
