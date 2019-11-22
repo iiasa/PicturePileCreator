@@ -6,7 +6,7 @@ namespace PPC.Utility.DTO
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public  class PileDefinition
+    public class PileDefinition
     {
         [JsonProperty("campaign_name", NullValueHandling = NullValueHandling.Ignore)]
         public string CampaignName { get; set; }
@@ -27,11 +27,20 @@ namespace PPC.Utility.DTO
         private string CampaignNameSQL => CampaignName.Replace("\'", "\'\'");
         private string QuestionSQL => Question.Replace("\'", "\'\'");
 
-
-
         public string SqlInsert => $"select * from public.gw_insert_urundata_pile_definition('{CampaignNameSQL}', '{QuestionSQL}', '{InstructionPagesCombined}', 0);";
 
         public static PileDefinition FromJson(string json) => JsonConvert.DeserializeObject<PileDefinition>(json, PPC.Utility.DTO.Converter.Settings);
+
+        public int GetAnswerId(string validationTileCorrectAnswer)
+        {
+            for (int i = 0; i < Answers.Length; i++)
+            {
+                if (Answers[i].ToLower() == validationTileCorrectAnswer.ToLower()) return (i + 1);
+            }
+
+            Console.WriteLine("Warning - couldn't match answer: " + validationTileCorrectAnswer);
+            return 0;
+        }
     }
 
     public static class Serialize

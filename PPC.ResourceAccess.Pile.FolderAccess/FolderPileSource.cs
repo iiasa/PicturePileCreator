@@ -42,12 +42,12 @@ namespace PPC.ResourceAccess.PileSource.Folder
             return pileDefinition;
         }
 
-        public List<Tile> ReadValidationTiles(object sourceAccessDescriptor)
+        public List<ValidationTile> ReadValidationTiles(object sourceAccessDescriptor)
         {
             string directory = Path.Combine((string)sourceAccessDescriptor, "ordinary"); // TODO: checks?
             List<string> fileNames =
                 GetFileNamesFromDirectory(directory, new[] { "*.jpg", "*.jpeg", "*.png" }, new[] { "_scrsh", "_marked" });
-            List<Tile> tiles = fileNames.Select(fileName => new ValidationTile() { filename = fileName }).Cast<Tile>().ToList();
+            List<ValidationTile> tiles = fileNames.Select(fileName => new ValidationTile() { filename = fileName }).ToList();
             return tiles;
         }
 
@@ -70,7 +70,7 @@ namespace PPC.ResourceAccess.PileSource.Folder
             return fileNames;
         }
 
-        public List<Tile> ReadExampleTiles(object sourceAccessDescriptor)
+        public List<ExampleTile> ReadExampleTiles(object sourceAccessDescriptor)
         {
             string directory = Path.Combine((string)sourceAccessDescriptor, "example"); // TODO: checks?
             List<string> fileNames =
@@ -78,11 +78,10 @@ namespace PPC.ResourceAccess.PileSource.Folder
 
             List<AnswerEntry> answers = ReadAnswerFile(Path.Combine((string)sourceAccessDescriptor, "example_answer.csv"));
 
-            List<Tile> tiles = fileNames.Select(fileName => new ValidationTile() { filename = fileName }).Cast<Tile>().ToList();
-            return tiles;
+            return answers.Select(answer => new ExampleTile() { correctAnswer = answer.AnswerIndo, filename = answer.Filename }).ToList();
         }
 
-        public List<Tile> ReadExpertTiles(object sourceAccessDescriptor)
+        public List<ExpertTile> ReadExpertTiles(object sourceAccessDescriptor)
         {
             string directory = Path.Combine((string)sourceAccessDescriptor, "expert"); // TODO: checks?
             List<string> fileNames =
@@ -90,8 +89,7 @@ namespace PPC.ResourceAccess.PileSource.Folder
 
             List<AnswerEntry> answers = ReadAnswerFile(Path.Combine((string)sourceAccessDescriptor, "expert_answer.csv"));
 
-            List<Tile> tiles = fileNames.Select(fileName => new ValidationTile() { filename = fileName }).Cast<Tile>().ToList();
-            return tiles;
+            return answers.Select(answer => new ExpertTile() { correctAnswer = answer.AnswerIndo, filename = answer.Filename }).ToList();
         }
 
         public bool SourceDescriptorTypeIsValid(object sourceDescriptor)
@@ -108,7 +106,14 @@ namespace PPC.ResourceAccess.PileSource.Folder
             Directory.CreateDirectory(targetDirectory);
             foreach (var fileName in fileNames)
             {
-                File.Copy(Path.Combine(directory, fileName), Path.Combine(targetDirectory, $"{pileId}_{fileName}"));
+                string targetFile = Path.Combine(targetDirectory, $"{pileId}_{fileName}");
+                if (File.Exists(targetFile))
+                {
+                    Console.WriteLine("File exists. skipping: " + targetFile);
+                    continue;
+                }
+
+                File.Copy(Path.Combine(directory, fileName), targetFile);
             }
         }
 
@@ -121,6 +126,13 @@ namespace PPC.ResourceAccess.PileSource.Folder
             Directory.CreateDirectory(targetDirectory);
             foreach (var fileName in fileNames)
             {
+                string targetFile = Path.Combine(targetDirectory, $"{pileId}_{fileName}");
+                if (File.Exists(targetFile))
+                {
+                    Console.WriteLine("File exists. skipping: " + targetFile);
+                    continue;
+                }
+
                 File.Copy(Path.Combine(directory, fileName), Path.Combine(targetDirectory, $"{pileId}_{fileName}"));
             }
         }
@@ -134,6 +146,13 @@ namespace PPC.ResourceAccess.PileSource.Folder
             Directory.CreateDirectory(targetDirectory);
             foreach (var fileName in fileNames)
             {
+                string targetFile = Path.Combine(targetDirectory, $"{pileId}_{fileName}");
+                if (File.Exists(targetFile))
+                {
+                    Console.WriteLine("File exists. skipping: " + targetFile);
+                    continue;
+                }
+
                 File.Copy(Path.Combine(directory, fileName), Path.Combine(targetDirectory, $"{pileId}_{fileName}"));
             }
         }

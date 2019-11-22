@@ -2,7 +2,7 @@
   "profiles": {
     "PPC.Client.Console": {
       "commandName": "Project",
-      "commandLineArgs": "-s \"E:\\Temp\\restore+PP\\first insert\" -t \"E:\\Temp\\restore+PP\\fi_target\" -d -w -m 12 -p 13 -a"
+      "commandLineArgs": "-s \"E:\\Temp\\national_picturepile\\6_1000n3000n5000\" -t \"E:\\Temp\\national_picturepile\\output\\7\" -d -w -m 32 -p 97 -a"
     }
   }
 }

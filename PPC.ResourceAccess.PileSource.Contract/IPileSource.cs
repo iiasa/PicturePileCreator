@@ -11,11 +11,11 @@ namespace PPC.ResourceAccess.PileSource.Contract
 
         PileDefinition ReadPileDefinition(object sourceAccessDescriptor);
 
-        List<Tile> ReadValidationTiles(object sourceAccessDescriptor);
+        List<ValidationTile> ReadValidationTiles(object sourceAccessDescriptor);
 
-        List<Tile> ReadExampleTiles(object sourceAccessDescriptor);
+        List<ExampleTile> ReadExampleTiles(object sourceAccessDescriptor);
 
-        List<Tile> ReadExpertTiles(object sourceAccessDescriptor);
+        List<ExpertTile> ReadExpertTiles(object sourceAccessDescriptor);
 
         bool SourceDescriptorTypeIsValid(object sourceDescriptor);
 

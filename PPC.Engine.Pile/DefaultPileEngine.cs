@@ -64,56 +64,56 @@ namespace PPC.Engine.Pile
 
             if (pileSourceCheckResult == PileSourceCheckResult.PileSourceOK && pileCreationResult == PileCreationResult.Ok)
             { // TODO: properly handle and return each result
-                pileCreationResult = WriteValidationTiles(sourceDescriptor, targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
-                pileCreationResult = WriteExampleTiles(sourceDescriptor, targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
-                pileCreationResult = WriteExpertTiles(sourceDescriptor, targetDescriptor, pileId, mediaItemGroupId, addTileIdAsPrefix);
+                pileCreationResult = WriteValidationTiles(sourceDescriptor, targetDescriptor, pileDefinition, pileId, mediaItemGroupId, addTileIdAsPrefix);
+                pileCreationResult = WriteExampleTiles(sourceDescriptor, targetDescriptor, pileDefinition, pileId, mediaItemGroupId, addTileIdAsPrefix);
+                pileCreationResult = WriteExpertTiles(sourceDescriptor, targetDescriptor, pileDefinition, pileId, mediaItemGroupId, addTileIdAsPrefix);
             }
 
             return pileCreationResult == PileCreationResult.Ok;
         }
 
-        private PileCreationResult WriteValidationTiles(object sourceDescriptor, object targetDescriptor, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
+        private PileCreationResult WriteValidationTiles(object sourceDescriptor, object targetDescriptor, PileDefinition pileDefinition, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
         {
-            List<Tile> tiles = PileSource.ReadValidationTiles(sourceDescriptor);
+            List<ValidationTile> tiles = PileSource.ReadValidationTiles(sourceDescriptor);
 
             if (addTileIdAsPrefix)
             {
                 tiles = CopyValidationTiles(sourceDescriptor, targetDescriptor, tiles, pileId);
             }
 
-            //Write sql
+            PileCreationTarget.WriteValidationTiles(targetDescriptor, tiles, pileDefinition, pileId, mediaItemGroupId);
 
             return PileCreationResult.Successful;
         }
 
-        private PileCreationResult WriteExpertTiles(object sourceDescriptor, object targetDescriptor, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
+        private PileCreationResult WriteExpertTiles(object sourceDescriptor, object targetDescriptor, PileDefinition pileDefinition, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
         {
-            List<Tile> tiles = PileSource.ReadExpertTiles(sourceDescriptor);
+            List<ExpertTile> tiles = PileSource.ReadExpertTiles(sourceDescriptor);
             if (addTileIdAsPrefix)
             {
                 tiles = CopyExpertTiles(sourceDescriptor, targetDescriptor, tiles, pileId);
             }
 
-            //Write sql
+            PileCreationTarget.WriteExpertTiles(targetDescriptor, tiles, pileDefinition, pileId, mediaItemGroupId);
 
             return PileCreationResult.Successful;
         }
 
-        private PileCreationResult WriteExampleTiles(object sourceDescriptor, object targetDescriptor, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
+        private PileCreationResult WriteExampleTiles(object sourceDescriptor, object targetDescriptor, PileDefinition pileDefinition, in int pileId, in int mediaItemGroupId, in bool addTileIdAsPrefix)
         {
-            List<Tile> tiles = PileSource.ReadExampleTiles(sourceDescriptor);
+            List<ExampleTile> tiles = PileSource.ReadExampleTiles(sourceDescriptor);
             if (addTileIdAsPrefix)
             {
                 tiles = CopyExampleTiles(sourceDescriptor, targetDescriptor, tiles, pileId);
             }
 
-            //Write sql
+            PileCreationTarget.WriteExampleTiles(targetDescriptor, tiles, pileDefinition, pileId, mediaItemGroupId);
 
             return PileCreationResult.Successful;
         }
 
-        private List<Tile> CopyValidationTiles(object sourceDescriptor, object targetDescriptor, List<Tile> tiles, int pileId)
-        {
+        private List<ValidationTile> CopyValidationTiles(object sourceDescriptor, object targetDescriptor, List<ValidationTile> tiles, int pileId)
+        { // TODO: create new list for tiles
             PileSource.CopyValidationTilesWithPrefix(sourceDescriptor, targetDescriptor, pileId);
             foreach (var tile in tiles)
             {
@@ -123,8 +123,8 @@ namespace PPC.Engine.Pile
             return tiles;
         }
 
-        private List<Tile> CopyExpertTiles(object sourceDescriptor, object targetDescriptor, List<Tile> tiles, int pileId)
-        {
+        private List<ExpertTile> CopyExpertTiles(object sourceDescriptor, object targetDescriptor, List<ExpertTile> tiles, int pileId)
+        { // TODO: create new list for tiles
             PileSource.CopyExpertTilesWithPrefix(sourceDescriptor, targetDescriptor, pileId);
             foreach (var tile in tiles)
             {
@@ -134,8 +134,8 @@ namespace PPC.Engine.Pile
             return tiles;
         }
 
-        private List<Tile> CopyExampleTiles(object sourceDescriptor, object targetDescriptor, List<Tile> tiles, int pileId)
-        {
+        private List<ExampleTile> CopyExampleTiles(object sourceDescriptor, object targetDescriptor, List<ExampleTile> tiles, int pileId)
+        { // TODO: create new list for tiles
             PileSource.CopyExampleTilesWithPrefix(sourceDescriptor, targetDescriptor, pileId);
             foreach (var tile in tiles)
             {

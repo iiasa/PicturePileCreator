@@ -1,24 +1,21 @@
-﻿using System;
-using System.IO;
-using System.Net;
-using System.Runtime.InteropServices.WindowsRuntime;
-using PPC.Utility.DTO;
+﻿using System.Linq;
 
 namespace PPC.ResourceAccess.PileCreationTarget.Folder
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Net;
+    using System.Runtime.InteropServices.WindowsRuntime;
+    using PPC.Utility.DTO;
     using PPC.ResourceAccess.PileCreationTarget.Contract;
 
     public class FolderPileCreationTarget : IPileCreationTarget
     {
-        public void SetPileCreationTarget(object targetAccessDescriptor)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public PileCreationResult CheckPileCreationTarget(object targetAccessDescriptor)
         {
-            string folderName = (string) targetAccessDescriptor;
-            if (!Directory.Exists(folderName)) return  PileCreationResult.InvalidAccessor;
+            string folderName = (string)targetAccessDescriptor;
+            if (!Directory.Exists(folderName)) return PileCreationResult.InvalidAccessor;
             return PileCreationResult.Ok; // TODO: Use the proper enum for this!
         }
 
@@ -39,19 +36,55 @@ namespace PPC.ResourceAccess.PileCreationTarget.Folder
             return PileCreationResult.Successful;
         }
 
-        public PileCreationResult WriteValidationTiles(object targetAccessDescriptor, int pileId, int mediaItemGroupId)
+        public PileCreationResult WriteValidationTiles(object targetAccessDescriptor, List<ValidationTile> tiles, PileDefinition pileDefinition, int pileId, int mediaItemGroupId)
         {
-            throw new System.NotImplementedException();
+            string targetFile = Path.Combine((string)targetAccessDescriptor, "insert_validation_tiles.sql");
+            List<string> inserts = tiles.Select(validationTile => $"select from public.gw_insert_urundata_tile('{validationTile.filename}', {mediaItemGroupId}, {pileId});").ToList();
+
+            try
+            {
+                File.WriteAllLines(targetFile, inserts);
+            }
+            catch (Exception e)
+            {
+                return PileCreationResult.WritingPileTilesFailed;
+            }
+
+            return PileCreationResult.Successful;
         }
 
-        public PileCreationResult WriteExampleTiles(object targetAccessDescriptor, int pileId, int mediaItemGroupId)
+        public PileCreationResult WriteExampleTiles(object targetAccessDescriptor, List<ExampleTile> tiles, PileDefinition pileDefinition, int pileId, int mediaItemGroupId)
         {
-            throw new System.NotImplementedException();
+            string targetFile = Path.Combine((string)targetAccessDescriptor, "insert_example_tiles.sql");
+            List<string> inserts = tiles.Select(validationTile => $"select from public.gw_insert_urundata_example_tile('{validationTile.filename}', {mediaItemGroupId}, {pileId}, {pileDefinition.GetAnswerId(validationTile.correctAnswer)});").ToList();
+
+            try
+            {
+                File.WriteAllLines(targetFile, inserts);
+            }
+            catch (Exception e)
+            {
+                return PileCreationResult.WritingPileTilesFailed;
+            }
+
+            return PileCreationResult.Successful;
         }
 
-        public PileCreationResult WriteExpertTiles(object targetAccessDescriptor, int pileId, int mediaItemGroupId)
+        public PileCreationResult WriteExpertTiles(object targetAccessDescriptor, List<ExpertTile> tiles, PileDefinition pileDefinition, int pileId, int mediaItemGroupId)
         {
-            throw new System.NotImplementedException();
+            string targetFile = Path.Combine((string)targetAccessDescriptor, "insert_expert_tiles.sql");
+            List<string> inserts = tiles.Select(validationTile => $"select from public.gw_insert_urundata_expert_tile('{validationTile.filename}', {mediaItemGroupId}, {pileId}, {pileDefinition.GetAnswerId(validationTile.correctAnswer)});").ToList();
+
+            try
+            {
+                File.WriteAllLines(targetFile, inserts);
+            }
+            catch (Exception e)
+            {
+                return PileCreationResult.WritingPileTilesFailed;
+            }
+
+            return PileCreationResult.Successful;
         }
 
         public bool TargetDescriptorTypeIsValid(object targetDescriptor)
