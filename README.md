@@ -89,7 +89,7 @@ Pilename,Filename,AnswerEng,AnswerIndo
 }
 ```
 
-#### How to create a new pile
+#### How to deploy the output of step 2) to Geo-Wiki
 1) Create a .zip containing the 3 image folders (ordinary, expert, example)
 2) Create a single sql file for the inserts: `copy /b insert_example_tiles.sql+insert_expert_tiles.sql+insert_validation_tiles.sql insert1.sql`
 3) Make sure the pile-logo has the correct filename.
