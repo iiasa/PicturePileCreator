@@ -2,8 +2,7 @@
 # PicturePile Creator
 .net core application for creating insert scripts for creating piles for PicturePile.
 
-## How to use
-The tool is a .net core application developed and used on Windows 10. Currently only a Console client is implemented. There is no apparent reason for the tool not to work on Linux or macOS computers, but this was not tried yet.
+This tool is a .net core application developed and used on Windows 10. Currently only a Console client is implemented. There is no apparent reason for the tool not to work on Linux or macOS computers, but this was not tried yet.
 
 
 ### Using the tool through the console
@@ -90,7 +89,7 @@ Pilename,Filename,AnswerEng,AnswerIndo
 }
 ```
 
-#### Deployment
+#### How to create a new pile
 1) Create a .zip containing the 3 image folders (ordinary, expert, example)
 2) Create a single sql file for the inserts: `copy /b insert_example_tiles.sql+insert_expert_tiles.sql+insert_validation_tiles.sql insert1.sql`
 3) Make sure the pile-logo has the correct filename.
